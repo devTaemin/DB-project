@@ -29,7 +29,7 @@ def login():
 @app.route('/hello')
 @app.route('/hello/<name>')
 def hello(name=None):
-    return render_template('Template/hello.html', name = name)
+    return render_template('practice-template/hello.html', name = name)
 
 with app.test_request_context('/hello', method='POST'):
     # now you can do something with the request until the
