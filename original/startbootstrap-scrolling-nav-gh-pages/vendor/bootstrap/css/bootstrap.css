@@ -23,7 +23,7 @@
   --success: #28a745;
   --info: #17a2b8;
   --warning: #ffc107;
-  --danger: #9d2235;
+  --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
   --breakpoint-xs: 0;
@@ -2323,7 +2323,7 @@ textarea.form-control {
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
-  color: #9d2235;
+  color: #dc3545;
 }
 
 .invalid-tooltip {
@@ -6761,13 +6761,13 @@ button.bg-warning:focus {
 }
 
 .bg-danger {
-  background-color: #9d2235;
+  background-color: #dc3545 !important;
 }
 
 a.bg-danger:hover, a.bg-danger:focus,
 button.bg-danger:hover,
 button.bg-danger:focus {
-  background-color: #9d2235;
+  background-color: #bd2130 !important;
 }
 
 .bg-light {
@@ -6859,7 +6859,7 @@ button.bg-dark:focus {
 }
 
 .border-danger {
-  border-color: #9d2235 !important;
+  border-color: #dc3545 !important;
 }
 
 .border-light {
@@ -10114,7 +10114,7 @@ a.text-warning:hover, a.text-warning:focus {
 }
 
 .text-danger {
-  color: #9d2235 !important;
+  color: #dc3545 !important;
 }
 
 a.text-danger:hover, a.text-danger:focus {
