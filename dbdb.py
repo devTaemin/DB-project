@@ -219,7 +219,7 @@ def select_all_corp():
     try:
         db = dbcon()
         Cursor = db.cursor()
-        Cursor.execute("SELECT c.회사, c.위치, c.평균연봉, (COUNT(c.회사)) FROM student s LEFT JOIN corp c ON s.회사 == c.회사 GROUP BY c.회사")
+        Cursor.execute("SELECT c.회사 AS 소속회사, c.위치, c.평균연봉, (COUNT(c.회사)) AS 소속수 FROM student s LEFT JOIN corp c ON s.회사 == c.회사 GROUP BY c.회사")
         ret = Cursor.fetchall()
     except Exception as e:
         print('db select all error', e)

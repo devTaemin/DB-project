@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 
   <title>KYUNGHEE - JOB[DB]</title>
 
@@ -99,6 +100,33 @@
           <br>
           <br>
           <h4><b>전체 회사 DB</b></h4>
+          <br>
+
+          <canvas id="chart" width="600" height="400"></canvas>
+          <script>
+            var pieData = [
+              {% for item, label, colors in set %}
+                {
+                  value: {{item}},
+                  label: "{{label}}",
+                  color : "{{colors}}"
+                },
+              {% endfor %}
+            ];
+
+            // get bar chart canvas
+            var mychart = document.getElementById("chart").getContext("2d");
+            steps = 10
+            max = {{ max }}
+
+            // draw pie chart
+            new Chart(document.getElementById("chart").getContext("2d")).Pie(pieData);
+
+          </script>
+          <br>
+          <br>
+
+
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>회사</th><th>위치</th><th>평균연봉</th><th>취업 인원</th>
             {% for row in DBdata2 %}
@@ -109,6 +137,20 @@
           </table>
           <br>
           <br>
+
+
+          <br>
+          <br>
+
+
+
+
+
+
+
+
+
+
 
 
         </h5>
@@ -122,6 +164,8 @@
   <!-- Bootstrap core JavaScript -->
   <script src="../static/jquery/jquery.slim.min.js"></script>
   <script src="../static/js/bootstrap.bundle.min.js"></script>
+
+
 
 </body>
 

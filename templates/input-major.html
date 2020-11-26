@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 
   <title>KYUNGHEE - JOB[DB]</title>
 
@@ -103,6 +104,50 @@
           <br>
           <br>
           <h4><b>{{ majorName }}과 학점 DB</b></h4>
+
+          <canvas id="chart7" width="600" height="400"></canvas>
+          <script>
+            // bar chart data
+            var barData = {
+              labels : [
+                {% for item in bgrade %}
+                 "{{ item }}",
+                {% endfor %}],
+
+              datasets : [{
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                data : [
+                  {% for item in grade %}
+                     "{{ item }}",
+                    {% endfor %}
+            ]
+                }
+              ]
+            }
+
+           // get bar chart canvas
+           var mychart = document.getElementById("chart7").getContext("2d");
+
+             steps = 5
+             max = {{max}}
+
+           // draw bar chart
+           new Chart(mychart).Bar(barData, {
+             scaleOverride: true,
+             scaleSteps: steps,
+             scaleStepWidth: Math.ceil(max / steps),
+             scaleStartValue: 0,
+             scaleShowVerticalLines: true,
+             scaleShowGridLines : true,
+             barShowStroke : true,
+             scaleShowLabels: true
+             }
+           );
+
+          </script>
+
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>평균 학점</th><th>최고 학점</th><th>최저 학점</th>
             {% for row in DBdata_grade %}
@@ -118,6 +163,50 @@
           <br>
           <br>
           <h4><b>{{ majorName }}과 토익 DB</b></h4>
+
+          <canvas id="chart2" width="600" height="400"></canvas>
+          <script>
+            // bar chart data
+            var barData_toeic = {
+              labels : [
+                {% for item in btoeic %}
+                 "{{ item }}",
+                {% endfor %}],
+
+              datasets : [{
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                data : [
+                  {% for item in toeic %}
+                     "{{ item }}",
+                    {% endfor %}
+            ]
+                }
+              ]
+            }
+
+           // get bar chart canvas
+           var mychart_toeic = document.getElementById("chart2").getContext("2d");
+
+             steps = 10
+             max = 990
+
+           // draw bar chart
+           new Chart(mychart_toeic).Bar(barData_toeic, {
+             scaleOverride: true,
+             scaleSteps: steps,
+             scaleStepWidth: Math.ceil(max / steps),
+             scaleStartValue: 0,
+             scaleShowVerticalLines: true,
+             scaleShowGridLines : true,
+             barShowStroke : true,
+             scaleShowLabels: true
+             }
+           );
+
+          </script>
+
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>평균 토익</th><th>최고 토익</th><th>최저 토익</th>
             {% for row in DBdata_toeic %}
@@ -133,6 +222,49 @@
           <br>
           <br>
           <h4><b>{{ majorName }}과 인턴 DB</b></h4>
+
+          <canvas id="chart3" width="600" height="400"></canvas>
+          <script>
+            // bar chart data
+            var barData_intern = {
+              labels : [
+                {% for item in bintern %}
+                 "{{ item }}",
+                {% endfor %}],
+
+              datasets : [{
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                data : [
+                  {% for item in intern %}
+                     "{{ item }}",
+                    {% endfor %}
+            ]
+                }
+              ]
+            }
+
+           // get bar chart canvas
+           var mychart_intern = document.getElementById("chart3").getContext("2d");
+
+             steps = 4
+             max = 4
+
+           // draw bar chart
+           new Chart(mychart_intern).Bar(barData_intern, {
+             scaleOverride: true,
+             scaleSteps: steps,
+             scaleStepWidth: Math.ceil(max / steps),
+             scaleStartValue: 0,
+             scaleShowVerticalLines: true,
+             scaleShowGridLines : true,
+             barShowStroke : true,
+             scaleShowLabels: true
+             }
+           );
+
+          </script>
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>평균 인턴</th><th>최고 인턴</th><th>최저 인턴</th>
             {% for row in DBdata_intern %}
@@ -148,6 +280,50 @@
           <br>
           <br>
           <h4><b>{{ majorName }}과 연봉 DB</b></h4>
+
+          <canvas id="chart4" width="600" height="400"></canvas>
+          <script>
+            // bar chart data
+            var barData_salary = {
+              labels : [
+                {% for item in bsalary %}
+                 "{{ item }}",
+                {% endfor %}],
+
+              datasets : [{
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                data : [
+                  {% for item in salary %}
+                     "{{ item }}",
+                    {% endfor %}
+            ]
+                }
+              ]
+            }
+
+           // get bar chart canvas
+           var mychart_salary = document.getElementById("chart4").getContext("2d");
+
+             steps = 12
+             max = 12000
+
+           // draw bar chart
+           new Chart(mychart_salary).Bar(barData_salary, {
+             scaleOverride: true,
+             scaleSteps: steps,
+             scaleStepWidth: Math.ceil(max / steps),
+             scaleStartValue: 0,
+             scaleShowVerticalLines: true,
+             scaleShowGridLines : true,
+             barShowStroke : true,
+             scaleShowLabels: true
+             }
+           );
+
+          </script>
+
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>평균 연봉</th><th>최고 연봉</th><th>최저 연봉</th>
             {% for row in DBdata_salary %}
