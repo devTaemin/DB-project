@@ -59,10 +59,10 @@
 
           <form action = "/inputMajor" method = "POST">
             <div style = "float:left;">
-              <input type = "text" id = "input_major" name = "input_major" value = "컴퓨터공학"><br>
+              <input type = "text" id = "input_major" name = "input_major" placeholder = "예시: 컴퓨터공학"><br>
             </div>
             <div class = "button" style = "float:left;">
-              <input type = "submit" value = "학과검사" onClick = "location.href='inputMajor'">
+              <input type = "submit" value = "학과별 검색" onClick = "location.href='inputMajor'">
             </div>
           </form>
 
@@ -76,6 +76,49 @@
             <tr>
               <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
               <td>{{ row[3] }}</td><td>{{ row[4] }}</td><td>{{ row[5] }}</td><td>{{ row[6] }}</td>
+            <tr>
+            {% endfor %}
+          </table>
+
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <h4><b>{{ majorName }} 학점 DB</b></h4>
+          <table valign = "top" border = "3" width = 100% margin = auto >
+            <th>평균 학점</th><th>최고 학점</th><th>최저 학점</th>
+            {% for row in DBdata_grade %}
+            <tr>
+              <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
+            <tr>
+            {% endfor %}
+          </table>
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <h4><b>{{ majorName }} 토익 DB</b></h4>
+          <table valign = "top" border = "3" width = 100% margin = auto >
+            <th>평균 토익</th><th>최고 토익</th><th>최저 토익</th>
+            {% for row in DBdata_toeic %}
+            <tr>
+              <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
+            <tr>
+            {% endfor %}
+          </table>
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <h4><b>{{ majorName }} 연봉 DB</b></h4>
+          <table valign = "top" border = "3" width = 100% margin = auto >
+            <th>평균 연봉</th><th>최고 연봉</th><th>최저 연봉</th>
+            {% for row in DBdata_salary %}
+            <tr>
+              <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
             <tr>
             {% endfor %}
           </table>
