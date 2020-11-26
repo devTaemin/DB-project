@@ -57,29 +57,58 @@
           <h4><b>검색 옵션을 선택해주세요.</b></h4>
           <br>
           <br>
-
-          <form action = "/inputMajor" method = "POST">
-            <div style = "float:left;">
-              <input type = "text" id = "input_major" name = "input_major" placeholder = "예시: 컴퓨터공학"><br>
-            </div>
-            <div class = "button" style = "float:left;">
-              <input type = "submit" value = "학과별 검색" onClick = "location.href='inputMajor'">
-            </div>
-          </form>
+          <p>
+            <form action = "/inputMajor" method = "POST" style = "margin:10px;">
+              <div style = "float:left;">
+                <input type = "text" id = "input_major" name = "input_major" placeholder = "예시: 컴퓨터공학"><br>
+              </div>
+              <div class = "button" style = "float:left;">
+                <input type = "submit" value = "학과별 검색" onClick = "location.href='/inputMajor'">
+              </div>
+            </form>
+          </p>
+          <br>
+          <p>
+            <form action = "/inputCorp" method = "POST" style = "margin:10px;">
+              <div style = "float:left;">
+                <input type = "text" id = "input_Corp" name = "input_Corp" placeholder = "예시: NAVER"><br>
+              </div>
+              <div class = "button" style = "float:left;">
+                <input type = "submit" value = "회사별 검색" onClick = "location.href='/inputCorp'">
+              </div>
+            </form>
+          </p>
 
 
           <br>
           <br>
-          <h4><b>전체DB</b></h4>
+          <h4><b>전체 학생 DB</b></h4>
           <table valign = "top" border = "3" width = 100% margin = auto >
-            <th>학번</th><th>학과</th><th>이름</th><th>학점</th><th>토익</th><th>인턴</th><th>취업</th>
+            <th>학번</th><th>학과</th><th>이름</th><th>학점</th><th>토익</th><th>인턴</th><th>취업</th><th>개인연봉</th>
             {% for row in DBdata %}
             <tr>
-              <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
-              <td>{{ row[3] }}</td><td>{{ row[4] }}</td><td>{{ row[5] }}</td><td>{{ row[6] }}</td>
+              <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td><td>{{ row[3] }}</td>
+              <td>{{ row[4] }}</td><td>{{ row[5] }}</td><td>{{ row[6] }}</td><td>{{ row[7] }}</td>
             <tr>
             {% endfor %}
           </table>
+          <br>
+          <br>
+
+
+          <br>
+          <br>
+          <h4><b>전체 회사 DB</b></h4>
+          <table valign = "top" border = "3" width = 100% margin = auto >
+            <th>회사</th><th>위치</th><th>평균연봉</th><th>취업 인원</th>
+            {% for row in DBdata2 %}
+            <tr>
+              <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td><td>{{ row[3] }}</td>
+            <tr>
+            {% endfor %}
+          </table>
+          <br>
+          <br>
 
 
         </h5>

@@ -45,7 +45,8 @@ def method():
 @app.route('/search')
 def Search():
     info = dbdb.select_all()
-    return render_template("search.html", DBdata = info)
+    info2 = dbdb.select_all_corp()
+    return render_template("search.html", DBdata = info, DBdata2 = info2)
 
 
 @app.route('/inputMajor', methods = ['GET', 'POST'])
@@ -71,6 +72,30 @@ def inputMajor():
         info_salary = dbdb.select_salary(input_major)
         info_corporation = dbdb.select_corporation(input_major)
         return render_template("input-major.html", DBdata = info, majorName = input_major, DBdata_grade = info_grade, DBdata_toeic = info_toeic, DBdata_intern = info_intern, DBdata_salary = info_salary, DBdata_corporation = info_corporation)
+
+@app.route('/inputCorp', methods = ['GET', 'POST'])
+def inputCorp():
+    if request.method == 'POST':
+        input_Corp = request.form['input_Corp']
+        #info = dbdb.select_all_corp()
+        #return "{}".format(input_major)
+        info = dbdb.select_corp(input_Corp)
+        info_grade = dbdb.select_grade_c(input_Corp)
+        info_toeic = dbdb.select_toeic_c(input_Corp)
+        info_intern = dbdb.select_intern_c(input_Corp)
+        info_salary = dbdb.select_salary_c(input_Corp)
+        return render_template("input-corp.html", DBdata = info, corpName = input_Corp, DBdata_grade = info_grade, DBdata_toeic = info_toeic, DBdata_intern = info_intern, DBdata_salary = info_salary)
+
+    else:
+        input_major = request.args['input_Corp']
+        #info = dbdb.select_all_corp()
+        #return "출력: {}".format(input_major)
+        info = dbdb.select_corp(input_Corp)
+        info_grade = dbdb.select_grade_c(input_Corp)
+        info_toeic = dbdb.select_toeic_c(input_Corp)
+        info_intern = dbdb.select_intern_c(input_Corp)
+        info_salary = dbdb.select_salary_c(input_Corp)
+        return render_template("input-corp.html", DBdata = info, corpName = input_Corp, DBdata_grade = info_grade, DBdata_toeic = info_toeic, DBdata_intern = info_intern, DBdata_salary = info_salary)
 
 
 
