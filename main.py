@@ -58,8 +58,9 @@ def inputMajor():
         info_toeic = dbdb.select_toeic(input_major)
         info_intern = dbdb.select_intern(input_major)
         info_salary = dbdb.select_salary(input_major)
+        info_corporation = dbdb.select_corporation(input_major)
         #return "{}".format(input_major)
-        return render_template("input-major.html", DBdata = info, majorName = input_major, DBdata_grade = info_grade, DBdata_toeic = info_toeic, DBdata_intern = info_intern, DBdata_salary = info_salary)
+        return render_template("input-major.html", DBdata = info, majorName = input_major, DBdata_grade = info_grade, DBdata_toeic = info_toeic, DBdata_intern = info_intern, DBdata_salary = info_salary, DBdata_corporation = info_corporation)
     else:
         input_major = request.args['input_major']
         #return "출력: {}".format(input_major)
@@ -68,7 +69,8 @@ def inputMajor():
         info_toeic = dbdb.select_toeic(input_major)
         info_intern = dbdb.select_intern(input_major)
         info_salary = dbdb.select_salary(input_major)
-        return render_template("input-major.html", DBdata = info, majorName = input_major, DBdata_grade = info_grade, DBdata_toeic = info_toeic, DBdata_intern = info_intern, DBdata_salary = info_salary)
+        info_corporation = dbdb.select_corporation(input_major)
+        return render_template("input-major.html", DBdata = info, majorName = input_major, DBdata_grade = info_grade, DBdata_toeic = info_toeic, DBdata_intern = info_intern, DBdata_salary = info_salary, DBdata_corporation = info_corporation)
 
 
 

@@ -116,6 +116,20 @@ def select_salary(_major):
         return ret
 
 
+def select_corporation(_major):
+    ret = list()
+    try:
+        db = dbcon()
+        Cursor = db.cursor()
+        Cursor.execute("SELECT c.회사, c.위치, (COUNT(c.회사)) FROM student s LEFT JOIN corp c ON s.회사 == c.회사 WHERE 전공 = '{}' GROUP BY c.회사".format(_major))
+        ret = Cursor.fetchall()
+    except Exception as e:
+        print('db select all error', e)
+    finally:
+        db.close()
+        return ret
+
+
 def select_num(num):
     ret = ()
     try:

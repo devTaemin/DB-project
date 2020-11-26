@@ -55,7 +55,10 @@
         <br>
 
         <h5 class ="mt-5">
+
           <h4><b>검색 옵션을 선택해주세요.</b></h4>
+          <br>
+          <br>
 
           <form action = "/inputMajor" method = "POST">
             <div style = "float:left;">
@@ -66,10 +69,11 @@
             </div>
           </form>
 
-
           <br>
           <br>
-          <h4><b>{{ majorName }} DB</b></h4>
+          <br>
+          <br>
+          <h4><b>{{ majorName }}과 DB</b></h4>
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>학번</th><th>학과</th><th>이름</th><th>학점</th><th>토익</th><th>인턴</th><th>취업</th>
             {% for row in DBdata %}
@@ -85,7 +89,7 @@
           <br>
           <br>
           <br>
-          <h4><b>{{ majorName }} 학점 DB</b></h4>
+          <h4><b>{{ majorName }}과 학점 DB</b></h4>
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>평균 학점</th><th>최고 학점</th><th>최저 학점</th>
             {% for row in DBdata_grade %}
@@ -95,14 +99,45 @@
             {% endfor %}
           </table>
 
+
           <br>
           <br>
           <br>
           <br>
-          <h4><b>{{ majorName }} 토익 DB</b></h4>
+          <h4><b>{{ majorName }}과 토익 DB</b></h4>
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>평균 토익</th><th>최고 토익</th><th>최저 토익</th>
             {% for row in DBdata_toeic %}
+            <tr>
+              <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
+            <tr>
+            {% endfor %}
+          </table>
+
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <h4><b>{{ majorName }}과 인턴 DB</b></h4>
+          <table valign = "top" border = "3" width = 100% margin = auto >
+            <th>평균 인턴</th><th>최고 인턴</th><th>최저 인턴</th>
+            {% for row in DBdata_intern %}
+            <tr>
+              <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
+            <tr>
+            {% endfor %}
+          </table>
+
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <h4><b>{{ majorName }}과 연봉 DB</b></h4>
+          <table valign = "top" border = "3" width = 100% margin = auto >
+            <th>평균 연봉</th><th>최고 연봉</th><th>최저 연봉</th>
+            {% for row in DBdata_salary %}
             <tr>
               <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
             <tr>
@@ -113,15 +148,19 @@
           <br>
           <br>
           <br>
-          <h4><b>{{ majorName }} 연봉 DB</b></h4>
+          <h4><b>{{ majorName }}과 취업현황 DB</b></h4>
           <table valign = "top" border = "3" width = 100% margin = auto >
-            <th>평균 연봉</th><th>최고 연봉</th><th>최저 연봉</th>
-            {% for row in DBdata_salary %}
+            <th>회사</th><th>위치</th><th>합격자 수</th>
+            {% for row in DBdata_corporation %}
             <tr>
               <td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td>
             <tr>
             {% endfor %}
           </table>
+          <br>
+          <br>
+          <br>
+          <br>
 
         </h5>
 
