@@ -53,6 +53,7 @@
         <br>
         <h2>SEARCH DATA</h2>
         <br>
+
         <h5 class ="mt-5">
           <h4><b>검색 옵션을 선택해주세요.</b></h4>
 
@@ -61,14 +62,14 @@
               <input type = "text" id = "input_major" name = "input_major" value = "컴퓨터공학"><br>
             </div>
             <div class = "button" style = "float:left;">
-              <input type = "submit" value = "학과검색" onClick = "location.href='inputMajor'">
+              <input type = "submit" value = "학과검사" onClick = "location.href='inputMajor'">
             </div>
           </form>
 
 
           <br>
           <br>
-          <h4><b>전체DB</b></h4>
+          <h4><b>{{ majorName }} DB</b></h4>
           <table valign = "top" border = "3" width = 100% margin = auto >
             <th>학번</th><th>학과</th><th>이름</th><th>학점</th><th>토익</th><th>인턴</th><th>취업</th>
             {% for row in DBdata %}
@@ -79,11 +80,10 @@
             {% endfor %}
           </table>
 
-
         </h5>
+
       </div>
     </div>
-
   </div>
 
 

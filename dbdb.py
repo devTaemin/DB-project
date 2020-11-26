@@ -1,7 +1,10 @@
 import sqlite3
+import numpy
+import pandas as pd
 
 def dbcon():
     return sqlite3.connect('myDB.db')
+
 '''
 def create_table():
     try:
@@ -41,6 +44,21 @@ def select_all():
     finally:
         db.close()
         return ret
+
+
+def select_major(_major):
+    ret = list()
+    try:
+        db = dbcon()
+        Cursor = db.cursor()
+        Cursor.execute("SELECT * FROM student WHERE 전공 = '{}'".format(_major))
+        ret = Cursor.fetchall()
+    except Exception as e:
+        print('db select all error', e)
+    finally:
+        db.close()
+        return ret
+
 
 def select_num(num):
     ret = ()

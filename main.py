@@ -13,8 +13,7 @@ def index():
 
 @app.route('/update')
 def Update():
-    info = dbdb.select_all()
-    return render_template("update.html", DBdata = info)
+    return render_template("update.html", )
 
 
 @app.route('/method', methods = ['GET', 'POST'])
@@ -45,9 +44,23 @@ def method():
 
 @app.route('/search')
 def Search():
-    return render_template("search.html")
+    info = dbdb.select_all()
+    return render_template("search.html", DBdata = info)
 
 
+@app.route('/inputMajor', methods = ['GET', 'POST'])
+def inputMajor():
+    if request.method == 'POST':
+        input_major = request.form['input_major']
+        #return "출력: {}".format(input_major)
+        info = dbdb.select_major(input_major)
+        #return "{}".format(input_major)
+        return render_template("input-major.html", DBdata = info, majorName = input_major)
+    else:
+        input_major = request.args['input_major']
+        #return "출력: {}".format(input_major)
+        info = dbdb.select_major(input_major)
+        return render_template("input-major.html", DBdata = info, majorName = input_major)
 
 
 
