@@ -20,12 +20,12 @@ def create_table():
     finally:
         db.close()
 '''
-def insert_data(num, major, name, grade, toeic, intern, corp):
+def insert_data(num, major, name, grade, toeic, intern, corp, salary):
     try:
         db = dbcon()
         Cursor = db.cursor()
-        setdata = (num, major, name, grade, toeic, intern, corp)
-        Cursor.execute("INSERT INTO student VALUES(?, ?, ?, ?, ?, ?, ?)", setdata)
+        setdata = (num, major, name, grade, toeic, intern, corp, salary)
+        Cursor.execute("INSERT INTO student VALUES(?, ?, ?, ?, ?, ?, ?, ?)", setdata)
         db.commit()
     except Exception as e:
         print('db insert data error', e)

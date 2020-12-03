@@ -26,8 +26,10 @@ def method():
         toeic = request.args["toeic"]
         intern = request.args["intern"]
         corp = request.args["corp"]
-        return "GET으로 전달된 데이터({}, {}, {}, {}, {}, {}, {})".format(
-        num, major, name, grade, toeic, intern, corp)
+        salary = request.args["salary"]
+
+        return "GET으로 전달된 데이터({}, {}, {}, {}, {}, {}, {}, {})".format(
+        num, major, name, grade, toeic, intern, corp, salary)
     else:
         num = request.form["student_num"]
         major = request.form["student_major"]
@@ -36,9 +38,11 @@ def method():
         toeic = request.form["toeic"]
         intern = request.form["intern"]
         corp = request.form["corp"]
-        dbdb.insert_data(num, major, name, grade, toeic, intern, corp)
-        return "POST으로 전달된 데이터({}, {}, {}, {}, {}, {}, {})".format(
-        num, major, name, grade, toeic, intern, corp)
+        salary = request.form["salary"]
+
+        dbdb.insert_data(num, major, name, grade, toeic, intern, corp, salary)
+        return "POST으로 전달된 데이터({}, {}, {}, {}, {}, {}, {}, {})".format(
+        num, major, name, grade, toeic, intern, corp, salary)
 
 
 
